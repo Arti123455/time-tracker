@@ -22,7 +22,7 @@ pipeline {
         stage("Deploy on Test"){
             steps{
                 // deploy on container -> plugin
-                deploy adapters: [tomcat8(credentialsId: 'tomcatuser', path: '', url: 'http://54.234.228.239:8080')], contextPath: '/app', war: '**/*.war'
+                deploy adapters: [tomcat8(credentialsId: 'tomcatuser', path: '', url: 'http://54.159.195.182')], contextPath: '/time-tracker', war: '**/*.war'
               
             }
             
