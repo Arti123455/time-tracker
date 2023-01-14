@@ -8,7 +8,7 @@ pipeline {
             steps{
                 // mvn test
                 bat 'mvn test'
-                
+                slackSend channel: 'springboot', message: 'Job started'
             }
             
         }
@@ -40,11 +40,11 @@ pipeline {
         }
         success{
             echo "========pipeline executed successfully ========"
-             slackSend channel: 'youtubejenkins', message: 'Success'
+             slackSend channel: 'springboot', message: 'Job success'
         }
         failure{
             echo "========pipeline execution failed========"
-             slackSend channel: 'youtubejenkins', message: 'Job Failed'
+             slackSend channel: 'springboot', message: 'Job failed'
         }
     }
 }
