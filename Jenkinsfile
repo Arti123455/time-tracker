@@ -4,24 +4,23 @@ pipeline {
         maven 'Maven' 
         }
     stages {
-        stage("Test"){
-            steps{
-                // mvn test
-                bat 'mvn test'
-                slackSend channel: 'springboot', message: 'Job started'
-            }
-            
-        }
         stage("Build"){
             steps{
+                // mvn test
                 bat 'mvn clean package'
-                
+                slackSend channel: 'springboot', message: 'Job started'
             }
             post {
                 success {
                     echo "Now Archiving the Artifacts....."
                     archiveArtifacts artifacts: '**/*.war'
                 }
+            }   
+        }
+        stage("Test"){
+            steps{
+                bat 'mvn test'
+                
             }
         }
         stage("Deploy on Test"){
