@@ -25,7 +25,7 @@ pipeline {
         }
         stage("Integration Test){
               steps{
-                  bat 'mvn verify'
+                bat 'mvn verify'
               }
           }
         stage("Deploy on Test"){
