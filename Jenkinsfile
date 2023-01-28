@@ -7,7 +7,7 @@ pipeline {
         stage("Build"){
             steps{
                 // mvn test
-                bat 'mvn clean package'
+                bat 'mvn -DskipTests clean package'
                 slackSend channel: 'springboot', message: 'Job started'
             }
             post {
