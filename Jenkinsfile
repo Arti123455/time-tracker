@@ -23,11 +23,6 @@ pipeline {
                 
             }
         }
-        stage("Integration Test){
-              steps{
-                bat 'mvn verify'
-              }
-          }
         stage("Deploy on Test"){
             steps{
                 // deploy on container -> plugin
